@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+#Quarto
+GET     /quarto                     controllers.QuartoController.buscarTodosOsQuartos()
+GET     /quarto/:id                 controllers.QuartoController.buscarQuartoPorId(id: Long)
+POST    /quarto                     controllers.QuartoController.criarQuarto()
+PUT     /quarto/:id                 controllers.QuartoController.atualizarQuarto(id: Long)
+DELETE  /quarto/:id                 controllers.QuartoController.deletarQuartoPorId(id: Long)
+
+#Hospede
+GET     /hospede                    controllers.HospedeController.buscarTodosOsHospedes()
+GET     /hospede/:id                controllers.HospedeController.buscarHospedePorId(id: Long)
+POST    /hospede                    controllers.HospedeController.criarHospede()
+PUT     /hospede/:id                controllers.HospedeController.atualizarHospede(id: Long)
+DELETE  /hospede/:id                controllers.HospedeController.delearHospedePorId(id: Long)
+
+#Reserva
+GET     /reserva                    controllers.ReservaController.buscarTodasAsReservas()
+GET     /reserva/:id                controllers.ReservaController.buscarReservaPorId(id: Long)
+POST    /reserva/:tempoLimpeza      controllers.ReservaController.criarReserva(tempoLimpeza: Int)
+PUT     /reserva/:id                controllers.ReservaController.atualizarReserva(id: Long)
+DELETE  /reserva/:id                controllers.ReservaController.deletarReservaPorId(id: Long)
