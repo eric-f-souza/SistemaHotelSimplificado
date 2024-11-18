@@ -26,6 +26,8 @@ DELETE  /hospede/:id                controllers.HospedeController.delearHospedeP
 #Reserva
 GET     /reserva                    controllers.ReservaController.buscarTodasAsReservas()
 GET     /reserva/:id                controllers.ReservaController.buscarReservaPorId(id: Long)
+GET     /reserva/quarto/:id         controllers.ReservaController.buscarReservasPorQuartoId(id: Long)
+GET     /reserva/hospede/:id        controllers.ReservaController.buscarReservasPorHospedeId(id: Long)
 POST    /reserva/:tempoLimpeza      controllers.ReservaController.criarReserva(tempoLimpeza: Int)
 PUT     /reserva/:id                controllers.ReservaController.atualizarReserva(id: Long)
 DELETE  /reserva/:id                controllers.ReservaController.deletarReservaPorId(id: Long)

@@ -22,7 +22,6 @@ class ReservaRepository @Inject()(db: DatabaseService)(implicit ex: ExecutionCon
   }
 
   def criarReserva(novaReserva: Reserva): Future[Reserva] = {
-    println("Chegou no Repository")
     db.run((reservas returning reservas.map(_.id) into ((reserva, idBanco) => reserva.copy(id = Some(idBanco)))) += novaReserva)
   }
 

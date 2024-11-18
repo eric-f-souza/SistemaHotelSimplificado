@@ -13,8 +13,4 @@ object ReadHospedeDto {
   }
   
   def fromHospedes(hospedes: Seq[Hospede]): Seq[ReadHospedeDto] = hospedes.map(fromHospede)
-  
-  def aplly(id: Long, nome: String, cpf: String, email: String, telefone: String): ReadHospedeDto = {
-    ReadHospedeDto(id, nome, cpf, email, telefone)
-  }
 }

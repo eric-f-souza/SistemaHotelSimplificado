@@ -57,6 +57,18 @@ class ReservaController @Inject()(
     }
   }
   
+  def buscarReservasPorQuartoId(idQuarto: Long) = Action.async {
+    reservaService.buscarReservasPorQuartoId(idQuarto).map { reservasQuarto =>
+      Ok(Json.toJson(reservasQuarto))
+    }
+  }
+  
+  def buscarReservasPorHospedeId(idHospede: Long) = Action.async {
+    reservaService.buscarReservaPorHospedeId(idHospede).map { reservasHospede =>
+      Ok(Json.toJson(reservasHospede))
+    }
+  }
+  
   def atualizarReserva(id: Long) = Action.async(parse.json) { json => 
     json.body.validate[UpdateReservaDto].fold(
       erros => {
